@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<meta charset="utf-8"/>
+	<meta name="mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<header>
+		<title>Gentry</title>
+		<link rel="manifest" href="assets/web_manifest.json"/>
+		<link rel="stylesheet" href="style.css" />
+		<script src="js/phaser.min.js"></script>
+		<script src="js/algorithms.js"></script>
+		<script src="js/Lemonade.js"></script>
+		<script src="js/FakeCoin.js"></script>
+		<script src="js/FakeStack.js"></script>
+		<script src="js/Menu.js" defer></script>
+		<script src="js/Boot.js"></script>
+	</header>
+	<body>
+		<div id="gameContainer"></div>
+
+		<script type="text/javascript">
+			var app;
+			var graphics;
+			window.onload = function() {
+				app = new Phaser.Game(1280, 720, Phaser.AUTO, 'gameContainer');
+				app.state.add('Boot', BasicApp.Boot);
+				app.state.add('Lemonade', BasicApp.Lemonade);
+				app.state.add('FakeCoin', BasicApp.FakeCoin);
+				app.state.add('FakeStack', BasicApp.FakeStack);
+				app.state.add('Menu', BasicApp.Menu);
+				app.state.start('Boot');
+			};
+		</script>
+
+	</body>
+</html>
