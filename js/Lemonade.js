@@ -222,6 +222,7 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	rightClick: function(){
+		console.log(this.siteMode);
 		this.siteMode = !this.siteMode;
 	}
 };
