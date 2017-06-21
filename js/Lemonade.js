@@ -30,13 +30,13 @@ BasicApp.Lemonade.prototype = {
 	update: function(){
 			var pos = this.latticePosition(this.input.activePointer.x, this.input.activePointer.y);
 			this.tooltip.setText("x: " + pos.x + " y: " + pos.y);
-			console.log(this.width);
-			graphics.width = this.width;
-			graphics.height = this.height;
+			console.log(this.game.width);
+			graphics.width = this.game.width;
+			graphics.height = this.game.height;
 	},
 
 	render: function(){
-		this.draw();
+		this.draw(this.houses, this.sites);
 	},
 
 	shutdown: function(){
@@ -53,25 +53,25 @@ BasicApp.Lemonade.prototype = {
 	drawLattice: function(){
 		graphics.lineStyle(2, 0xffffff, 1);
 
-		for(var i=0;i*this.cellSize < this.width;i++){
+		for(var i=0;i*this.cellSize < this.game.width;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(pos, 0);
-			graphics.lineTo(pos, this.height);
+			graphics.lineTo(pos, this.game.height);
 		}
 
-		for(var i=0;i*this.cellSize < this.height;i++){
+		for(var i=0;i*this.cellSize < this.game.height;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(0, pos);
-			graphics.lineTo(this.width, pos);
+			graphics.lineTo(this.game.width, pos);
 		}
 	},
 
 	drawIntersections: function(){
 		graphics.lineStyle(2, 0xffd900);
 
-		for(var i=0;i*this.cellSize < this.width;i++){
+		for(var i=0;i*this.cellSize < this.game.width;i++){
 			var xPos = this.cellSize * i;
-			for(var j=0;j*this.cellSize < this.height;j++){
+			for(var j=0;j*this.cellSize < this.game.height;j++){
 				var yPos = this.cellSize * j;
 				graphics.drawCircle(xPos, yPos, this.diameter);
 			}
