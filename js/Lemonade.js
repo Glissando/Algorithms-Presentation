@@ -109,6 +109,7 @@ BasicApp.Lemonade.prototype = {
 
 		//Draw houses
 		for(var i=0;i<this.houses.length;i++){
+			console.log("IsSiteOverlap: "+!this.isSiteOverlap(this.houses[i]));
 			if(!this.isSiteOverlap(this.houses[i])){
 				graphics.beginFill(0x0000ff);
 				graphics.drawCircle(this.sites[i].x*this.cellSize, this.sites[i].y*this.cellSize);
@@ -140,6 +141,7 @@ BasicApp.Lemonade.prototype = {
 	removeHouse: function(pos){
 		for(var i=0;i<this.houses.length;i++){
 			if(pos.equals(this.houses[i])){
+				console.log("removed House");
 				this.houses.splice(i,1);
 				return true;
 			}
@@ -151,7 +153,7 @@ BasicApp.Lemonade.prototype = {
 	removeSite: function(pos){
 		for(var i=0;i<this.sites.length;i++){
 			if(pos.equals(this.sites[i])){
-				console.log("removed");
+				console.log("removed Site");
 				this.sites.splice(i,1);
 				return true;
 			}
