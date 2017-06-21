@@ -80,21 +80,21 @@ BasicApp.Lemonade.prototype = {
 	drawLocations: function(houses, sites){
 		//Draw sites
 		for(var i=0;i<this.sites.length;i++){
-			if(this.isHouseOverlap(sites[i])){
+			if(this.isHouseOverlap(this.sites[i])){
 				graphics.beginFill(0xFF0000);
-				graphics.drawCircle(sites[i].x, sites[i].y, this.diameter-1);
+				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
 			}
 			else{
 				graphics.beginFill(0x00FF00);
-				graphics.drawCircle(sites[i].x, sites[i].y, this.diameter-1);
+				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
 			}
 		}
 
 		//Draw houses
 		for(var i=0;i<this.houses.length;i++){
-			if(!this.isSiteOverlap(houses[i])){
+			if(!this.isSiteOverlap(this.houses[i])){
 				graphics.beginFill(0x0000FF);
-				graphics.drawCircle(sites[i].x, sites[i].y)
+				graphics.drawCircle(this.sites[i].x, this.sites[i].y)
 			}
 		}
 	},
