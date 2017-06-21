@@ -34,6 +34,8 @@ BasicApp.Lemonade.prototype = {
 
 			this.tooltip.text = "x: " + x + " y: " + y;
 			console.log(this.tooltip.text);
+			console.log(x);
+			console.log(y);
 	},
 
 	render: function(){
@@ -53,7 +55,7 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	drawLattice: function(){
-		graphics.lineStyle(2, 0xFFFFFF, 1);
+		graphics.lineStyle(2, 0xffffff, 1);
 
 		for(var i=0;i*this.cellSize < this.width;i++){
 			var pos = this.cellSize * i;
