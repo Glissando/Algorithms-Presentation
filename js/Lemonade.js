@@ -97,12 +97,12 @@ BasicApp.Lemonade.prototype = {
 		for(var i=0;i<this.sites.length;i++){
 			if(this.isHouseOverlap(this.sites[i])){
 				graphics.beginFill(0xff0000);
-				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
+				graphics.drawCircle(this.sites[i].x*this.cellSize, this.sites[i].y*this.cellSize, this.diameter);
 				graphics.endFill();
 			}
 			else{
 				graphics.beginFill(0x00ff00);
-				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
+				graphics.drawCircle(this.sites[i].x*this.cellSize, this.sites[i].y*this.cellSize, this.diameter);
 				graphics.endFill();
 			}
 		}
@@ -111,7 +111,7 @@ BasicApp.Lemonade.prototype = {
 		for(var i=0;i<this.houses.length;i++){
 			if(!this.isSiteOverlap(this.houses[i])){
 				graphics.beginFill(0x0000ff);
-				graphics.drawCircle(this.sites[i].x, this.sites[i].y)
+				graphics.drawCircle(this.sites[i].x*this.cellSize, this.sites[i].y*this.cellSize);
 				graphics.endFill();
 			}
 		}
