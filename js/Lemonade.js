@@ -15,7 +15,7 @@ BasicApp.Lemonade = function(app){
 BasicApp.Lemonade.prototype = {
 
 	create: function(){
-		if(this.tooltip){
+		if(!this.tooltip){
 			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
 			this.tooltip = this.add.text(20, 30, '', style);
 
@@ -23,7 +23,7 @@ BasicApp.Lemonade.prototype = {
 		else{
 			this.tooltip = renderable = true;
 		}
-		console.log("Created text");
+
 		this.addKeys();
 		this.addPointers();
 	},
