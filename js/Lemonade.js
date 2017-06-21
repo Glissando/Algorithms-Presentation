@@ -62,10 +62,10 @@ BasicApp.Lemonade.prototype = {
 			graphics.beginFill(0xffffff);
 			graphics.lineStyle(2, 0xffffff, 1);
 			graphics.moveTo(pos, 0);
-			//graphics.lineTo(pos, this.game.height);
+			graphics.lineTo(pos, this.game.height);
 			//var line = new Phaser.Line(pos, 0, pos, this.game.height);
 			//graphics.drawShape(line);
-			graphics.drawPolygon([pos,0,pos,this.game.height]);
+			//graphics.drawPolygon([pos,0,pos,this.game.height]);
 			graphics.endFill();
 		}
 
@@ -74,10 +74,10 @@ BasicApp.Lemonade.prototype = {
 			graphics.beginFill(0xffffff);
 			graphics.lineStyle(2, 0xffffff, 1);
 			graphics.moveTo(0, pos);
-			//graphics.lineTo(this.game.width, pos);
+			graphics.lineTo(this.game.width, pos);
 			//var line = new Phaser.Line(0, pos, this.game.width, pos);
 			//graphics.drawShape(line);
-			graphics.drawPolygon([0,pos,this.game.width,pos]);
+			//graphics.drawPolygon([0,pos,this.game.width,pos]);
 			graphics.endFill();
 		}
 	},
