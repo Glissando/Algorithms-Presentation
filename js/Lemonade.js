@@ -34,7 +34,6 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	shutdown: function(){
-
 	},
 
 	draw: function(houses, sites){
