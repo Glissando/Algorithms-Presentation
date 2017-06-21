@@ -55,14 +55,18 @@ BasicApp.Lemonade.prototype = {
 
 		for(var i=0;i*this.cellSize < this.game.width;i++){
 			var pos = this.cellSize * i;
-			graphics.moveTo(pos, 0);
-			graphics.lineTo(pos, this.game.height);
+			//graphics.moveTo(pos, 0);
+			//graphics.lineTo(pos, this.game.height);
+			var line = new Phaser.Line(pos, 0, pos, this.game.height);
+			graphics.drawShape(line);
 		}
 
 		for(var i=0;i*this.cellSize < this.game.height;i++){
 			var pos = this.cellSize * i;
-			graphics.moveTo(0, pos);
-			graphics.lineTo(this.game.width, pos);
+			//graphics.moveTo(0, pos);
+			//graphics.lineTo(this.game.width, pos);
+			var line = new Phaser.Line(0, pos, this.game.width, pos);
+			graphics.drawShape(line);
 		}
 	},
 
@@ -86,7 +90,7 @@ BasicApp.Lemonade.prototype = {
 				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
 			}
 			else{
-				graphics.beginFill(0x00FF00);
+				graphics.beginFill(0x00ff00);
 				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
 			}
 		}
@@ -94,7 +98,7 @@ BasicApp.Lemonade.prototype = {
 		//Draw houses
 		for(var i=0;i<this.houses.length;i++){
 			if(!this.isSiteOverlap(this.houses[i])){
-				graphics.beginFill(0x0000FF);
+				graphics.beginFill(0x0000ff);
 				graphics.drawCircle(this.sites[i].x, this.sites[i].y)
 			}
 		}
