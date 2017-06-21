@@ -30,7 +30,7 @@ BasicApp.Lemonade.prototype = {
 	update: function(){
 			var pos = this.latticePosition(this.input.activePointer.x, this.input.activePointer.y);
 			this.tooltip.setText("x: " + pos.x + " y: " + pos.y);
-
+			console.log(this.width);
 			graphics.width = this.width;
 			graphics.height = this.height;
 	},
@@ -44,7 +44,6 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	draw: function(houses, sites){
-		console.log("drawed");
 		graphics.clear();
 		this.drawLattice();
 		this.drawIntersections();
