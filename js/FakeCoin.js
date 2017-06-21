@@ -119,19 +119,7 @@ BasicApp.FakeCoin.prototype = {
 		this.esc.onDown.add(this.menu, this);
 	},
 
-	leftClick: function(){
-		var x = this.input.activePointer.x;
-		var y = this.input.activePointer.y;
+	leftClick: function(){},
 
-		if(this.siteMode){
-			this.sites.push(this.latticePosition(x,y));
-		}
-		else{
-			this.houses.push(this.latticePosition(x,y));
-		}
-	},
-
-	rightClick: function(){
-		this.siteMode = !this.siteMode;
-	}
+	rightClick: function(){}
 };
