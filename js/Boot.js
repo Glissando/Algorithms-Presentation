@@ -1,7 +1,7 @@
 var BasicApp = {};
 
 BasicApp.Boot = function (app) {
-	
+
 };
 
 BasicApp.Boot.prototype = {
@@ -12,9 +12,9 @@ BasicApp.Boot.prototype = {
 
         //  pause game if the tab loses focus
         this.stage.disableVisibilityChange = true;
-		
+
 		//game.time.advancedTiming = true;
-		
+
         if (this.device.desktop)
         {
 			this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
@@ -22,7 +22,7 @@ BasicApp.Boot.prototype = {
             this.scale.pageAlignHorizontally = true;
 			this.scale.pageAlignVertically = true;
 			this.scale.setMinMax(640, 360, 1920, 1080);
-			
+
 			this.scale.setResizeCallback(function(){
 				var scale = Math.min(window.innerWidth / this.game.width, window.innerHeight / this.game.height);
 				this.scale.setUserScale(scale,scale,0,0);
@@ -38,7 +38,7 @@ BasicApp.Boot.prototype = {
             this.scale.pageAlignHorizontally = true;
 			this.scale.pageAlignVertically = true;
 			this.time.desiredFps = 25;
-			
+
 			this.scale.setResizeCallback(function(){
 				var scale = Math.min(window.innerWidth / this.game.width, window.innerHeight / this.game.height);
 				this.scale.setUserScale(scale,scale,0,0);
@@ -48,13 +48,15 @@ BasicApp.Boot.prototype = {
     },
 
     preload: function () {
-		this.load.image("menubackground", "images/background.jpg");
-		this.load.image("button", "images/button.jpg");
+			this.load.image("menubackground", "images/menuBackground.jpg");
+			this.load.image("lemonade", "images/lemonadeButton.png");
+			this.load.image("fakeCoin", "images/FakeCoinButton.png");
+			this.load.image("fakeCoins", "images/FakeCoinsButton.png");
     },
 
     create: function () {
-		graphics = app.add.graphics(0,0);
-		this.state.start('Lemonade');
+			graphics = app.add.graphics(0,0);
+			this.state.start('Lemonade', false);
     }
 
 };
