@@ -11,9 +11,13 @@ BasicApp.FakeCoin = function(app){
 BasicApp.FakeCoin.prototype = {
 
 	create: function(){
-		var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
-		this.tooltip = app.add.text(20,640, '', style);
-
+		if(this.tooltip){
+			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
+			this.tooltip = app.add.text(20,640, '', style);
+		}
+		else{
+			this.tooltip.renderable = true;
+		}
 		this.addKeys();
 		this.addPointers();
 	},
@@ -23,7 +27,7 @@ BasicApp.FakeCoin.prototype = {
 	},
 
 	shutdown: function(){
-
+		this.tooltip.renderable = false;
 	},
 
 	drawScale: function(){
