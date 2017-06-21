@@ -52,13 +52,13 @@ BasicApp.Lemonade.prototype = {
 	drawLattice: function(){
 		graphics.lineStyle(2, 0xFFFFFF, 1);
 
-		for(var i=0;i*this.cellSize < game.screen.width;i++){
+		for(var i=0;i*this.cellSize < this.game.screen.width;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(pos, 0);
 			graphics.lineTo(pos, app.screen.height);
 		}
 
-		for(var i=0;i*this.cellSize < game.screen.height;i++){
+		for(var i=0;i*this.cellSize < this.game.screen.height;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(0, pos);
 			graphics.lineTo(app.screen.width, pos);
