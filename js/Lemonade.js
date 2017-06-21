@@ -31,8 +31,8 @@ BasicApp.Lemonade.prototype = {
 			var pos = this.latticePosition(this.input.activePointer.x, this.input.activePointer.y);
 			this.tooltip.setText("x: " + pos.x + " y: " + pos.y);
 
-			graphics.width = this.screen.width;
-			graphics.height = this.screen.height;
+			graphics.width = this.width;
+			graphics.height = this.height;
 	},
 
 	render: function(){
@@ -57,13 +57,13 @@ BasicApp.Lemonade.prototype = {
 		for(var i=0;i*this.cellSize < this.width;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(pos, 0);
-			graphics.lineTo(pos, this.screen.height);
+			graphics.lineTo(pos, this.height);
 		}
 
 		for(var i=0;i*this.cellSize < this.height;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(0, pos);
-			graphics.lineTo(this.screen.width, pos);
+			graphics.lineTo(this.width, pos);
 		}
 	},
 
