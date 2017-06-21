@@ -33,7 +33,7 @@ BasicApp.Lemonade.prototype = {
 			var y = this.input.activePointer.y;
 
 			this.tooltip.text = "x: " + x + " y: " + y;
-			console.log(text);
+			console.log(this.tooltip.text);
 	},
 
 	render: function(){
