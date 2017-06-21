@@ -3,7 +3,7 @@ BasicApp.Lemonade = function(app){
 	this.houses = [];
 	this.siteMode = true;
 	this.cellSize = 30; //Side length of a grid
-	this.diameter = Math.sqrt(this.cellSize)+20;
+	this.diameter = Math.sqrt(this.cellSize)+12;
 	this.latticeRange = this.diameter+2;
 	this.run = null;
 	this.p = null;
@@ -112,7 +112,7 @@ BasicApp.Lemonade.prototype = {
 			console.log("IsSiteOverlap: "+!this.isSiteOverlap(this.houses[i]));
 			if(!this.isSiteOverlap(this.houses[i])){
 				graphics.beginFill(0x0000ff);
-				graphics.drawCircle(this.sites[i].x*this.cellSize, this.sites[i].y*this.cellSize);
+				graphics.drawCircle(this.houses[i].x*this.cellSize, this.houses[i].y*this.cellSize);
 				graphics.endFill();
 			}
 		}
