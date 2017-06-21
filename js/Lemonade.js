@@ -3,7 +3,7 @@ BasicApp.Lemonade = function(app){
 	this.houses = [];
 	this.siteMode = true;
 	this.cellSize = 30; //Side length of a grid
-	this.diameter = Math.sqrt(this.cellSize)+10;
+	this.diameter = Math.sqrt(this.cellSize)+20;
 	this.latticeRange = this.diameter+2;
 	this.run = null;
 	this.p = null;
@@ -151,6 +151,7 @@ BasicApp.Lemonade.prototype = {
 	removeSite: function(pos){
 		for(var i=0;i<this.sites.length;i++){
 			if(pos.equals(this.sites[i])){
+				console.log("removed");
 				this.sites.splice(i,1);
 				return true;
 			}
