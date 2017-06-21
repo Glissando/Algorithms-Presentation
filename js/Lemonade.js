@@ -31,8 +31,8 @@ BasicApp.Lemonade.prototype = {
 			var pos = this.latticePosition(this.input.activePointer.x, this.input.activePointer.y);
 			this.tooltip.setText("x: " + pos.x + " y: " + pos.y);
 
-			graphics.width = this.game.screen.width;
-			graphics.height = this.game.screen.height;
+			graphics.width = this.screen.width;
+			graphics.height = this.screen.height;
 	},
 
 	render: function(){
