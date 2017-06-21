@@ -46,8 +46,8 @@ BasicApp.Lemonade.prototype = {
 	draw: function(houses, sites){
 		graphics.clear();
 		this.drawLattice();
-		//this.drawIntersections();
-		//this.drawLocations();
+		this.drawIntersections();
+		this.drawLocations();
 	},
 
 	drawLattice: function(){
@@ -79,13 +79,15 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	drawIntersections: function(){
-		graphics.lineStyle(2, 0xffd900);
+
 
 		for(var i=0;i*this.cellSize < this.game.width;i++){
 			var xPos = this.cellSize * i;
 			for(var j=0;j*this.cellSize < this.game.height;j++){
 				var yPos = this.cellSize * j;
+				graphics.lineStyle(2, 0xffd900);
 				graphics.drawCircle(xPos, yPos, this.diameter);
+				graphics.endFill();
 			}
 		}
 	},
@@ -96,10 +98,12 @@ BasicApp.Lemonade.prototype = {
 			if(this.isHouseOverlap(this.sites[i])){
 				graphics.beginFill(0xff0000);
 				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
+				graphics.endFill();
 			}
 			else{
 				graphics.beginFill(0x00ff00);
 				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
+				graphics.endFill();
 			}
 		}
 
@@ -108,6 +112,7 @@ BasicApp.Lemonade.prototype = {
 			if(!this.isSiteOverlap(this.houses[i])){
 				graphics.beginFill(0x0000ff);
 				graphics.drawCircle(this.sites[i].x, this.sites[i].y)
+				graphics.endFill();
 			}
 		}
 	},
