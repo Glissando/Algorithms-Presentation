@@ -2,7 +2,7 @@ BasicApp.Lemonade = function(app){
 	this.sites = [];
 	this.houses = [];
 	this.siteMode = true;
-	this.cellSize = 50; //Side length of a grid
+	this.cellSize = 30; //Side length of a grid
 	this.diameter = Math.sqrt(this.cellSize) / this.cellSize;
 	this.latticeRange = this.diameter+2;
 	this.run = null;
@@ -44,7 +44,7 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	draw: function(houses, sites){
-
+		console.log("drawed");
 		graphics.clear();
 		this.drawLattice();
 		this.drawIntersections();
