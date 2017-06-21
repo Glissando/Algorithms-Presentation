@@ -79,7 +79,7 @@ BasicApp.Lemonade.prototype = {
 
 	drawLocations: function(houses, sites){
 		//Draw sites
-		for(var i=0;i<sites.length;i++){
+		for(var i=0;i<this.sites.length;i++){
 			if(this.isHouseOverlap(sites[i])){
 				graphics.beginFill(0xFF0000);
 				graphics.drawCircle(sites[i].x, sites[i].y, this.diameter-1);
@@ -91,7 +91,7 @@ BasicApp.Lemonade.prototype = {
 		}
 
 		//Draw houses
-		for(var i=0;i<houses.length;i++){
+		for(var i=0;i<this.houses.length;i++){
 			if(!this.isSiteOverlap(houses[i])){
 				graphics.beginFill(0x0000FF);
 				graphics.drawCircle(sites[i].x, sites[i].y)
