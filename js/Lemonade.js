@@ -45,8 +45,8 @@ BasicApp.Lemonade.prototype = {
 	draw: function(houses, sites){
 		graphics.clear();
 		this.drawLattice();
-		this.drawIntersections();
-		this.drawLocations();
+		//this.drawIntersections();
+		//this.drawLocations();
 	},
 
 	drawLattice: function(){
