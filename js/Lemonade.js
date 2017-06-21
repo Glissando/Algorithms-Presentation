@@ -164,6 +164,8 @@ BasicApp.Lemonade.prototype = {
 
 	findBestLocation: function(){
 		var pos = bestLocation(this.houses,this.sites);
+
+		this.sites = [pos];
 	},
 
 	latticePosition: function(x, y){
