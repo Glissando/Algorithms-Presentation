@@ -9,6 +9,7 @@ BasicApp.Lemonade = function(app){
 	this.p = null;
 	this.esc = null;
 
+	this.bmd = null;
 	this.tooltip = null;
 };
 
@@ -18,6 +19,8 @@ BasicApp.Lemonade.prototype = {
 		if(!this.tooltip){
 			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
 			this.tooltip = this.add.text(20, 30, '', style);
+
+			this.bmd = this.game.make.bitMapData(this.game.width,this.game.height);
 		}
 		else{
 			this.tooltip = renderable = true;
@@ -30,8 +33,10 @@ BasicApp.Lemonade.prototype = {
 	update: function(){
 			var pos = this.latticePosition(this.input.activePointer.x, this.input.activePointer.y);
 			this.tooltip.setText("x: " + pos.x + " y: " + pos.y);
-			graphics.width = this.game.width;
-			graphics.height = this.game.height;
+			//graphics.width = this.game.width;
+			//graphics.height = this.game.height;
+			this.bmd.width = this.game.width;
+			this.bmd.height = this.game.height;
 	},
 
 	render: function(){
@@ -59,7 +64,7 @@ BasicApp.Lemonade.prototype = {
 			//var line = new Phaser.Line(pos, 0, pos, this.game.height);
 			//graphics.drawShape(line);
 			graphics.drawPolygon([pos,0,pos,this.game.height]);
-			graphics.moveTo(pos,this.game.height);
+			graphics.endFill();
 		}
 
 		for(var i=0;i*this.cellSize < this.game.height;i++){
@@ -69,7 +74,7 @@ BasicApp.Lemonade.prototype = {
 			//var line = new Phaser.Line(0, pos, this.game.width, pos);
 			//graphics.drawShape(line);
 			graphics.drawPolygon([0,pos,this.game.width,pos]);
-			graphics.moveTo(this.game.width,pos);
+			graphics.endFill();
 		}
 	},
 
