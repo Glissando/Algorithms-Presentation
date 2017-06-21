@@ -18,7 +18,6 @@ BasicApp.Lemonade.prototype = {
 		if(!this.tooltip){
 			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
 			this.tooltip = this.add.text(20, 30, '', style);
-
 		}
 		else{
 			this.tooltip = renderable = true;
@@ -29,10 +28,11 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	update: function(){
-			var x = this.input.activePointer.x;
-			var y = this.input.activePointer.y;
+			var pos = this.latticePosition(this.input.activePointer.x, this.input.activePointer.y);
+			this.tooltip.setText("x: " + pos.x + " y: " + pos.y);
 
-			this.tooltip.setText("x: " + x + " y: " + y);
+			graphics.width = this.game.screen.width;
+			graphics.height = this.game.screen.height;
 	},
 
 	render: function(){
@@ -45,7 +45,7 @@ BasicApp.Lemonade.prototype = {
 
 	draw: function(houses, sites){
 		console.log("drawed");
-		//graphics.clear();
+		graphics.clear();
 		this.drawLattice();
 		this.drawIntersections();
 		this.drawLocations();
