@@ -15,7 +15,7 @@ BasicApp.Boot.prototype = {
 
 		//game.time.advancedTiming = true;
 
-        if (this.device.desktop)
+        if (this.game.device.desktop)
         {
 			this.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
 			//this.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
