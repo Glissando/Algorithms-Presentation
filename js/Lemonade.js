@@ -3,7 +3,7 @@ BasicApp.Lemonade = function(app){
 	this.houses = [];
 	this.siteMode = true;
 	this.cellSize = 30; //Side length of a grid
-	this.diameter = Math.sqrt(this.cellSize);
+	this.diameter = Math.sqrt(this.cellSize)+10;
 	this.latticeRange = this.diameter+2;
 	this.run = null;
 	this.p = null;
@@ -211,11 +211,13 @@ BasicApp.Lemonade.prototype = {
 
 				if(!this.removeSite(latticePoint)){
 					this.sites.push(latticePoint);
+					console.log(latticePoint);
 				}
 			}
 			else{
 				if(!this.removeHouse(latticePoint)){
 					this.houses.push(latticePoint);
+					console.log(latticePoint);
 				}
 			}
 		}
