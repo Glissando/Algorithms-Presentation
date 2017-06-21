@@ -18,11 +18,12 @@ BasicApp.Lemonade.prototype = {
 		if(this.tooltip){
 			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
 			this.tooltip = this.add.text(20, 30, '', style);
-			console.log("Created text");
+
 		}
 		else{
 			this.tooltip = renderable = true;
 		}
+		console.log("Created text");
 		this.addKeys();
 		this.addPointers();
 	},
