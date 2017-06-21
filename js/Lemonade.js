@@ -205,7 +205,7 @@ BasicApp.Lemonade.prototype = {
 
 		var latticePoint = this.latticePosition(x,y);
 
-		console.log(Phaser.point.distance(latticePoint.x, latticePoint.y, x/this.cellSize,y/this.cellSize));
+		console.log(this.distance(latticePoint.x, latticePoint.y, x/this.cellSize,y/this.cellSize));
 		if(this.distance(latticePoint.x, latticePoint.y, x/this.cellSize, y/this.cellSize) < this.latticeRange){
 			if(this.siteMode){
 
