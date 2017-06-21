@@ -3,7 +3,7 @@ BasicApp.Lemonade = function(app){
 	this.houses = [];
 	this.siteMode = true;
 	this.cellSize = 30; //Side length of a grid
-	this.diameter = Math.sqrt(this.cellSize) / this.cellSize;
+	this.diameter = Math.sqrt(this.cellSize);
 	this.latticeRange = this.diameter+2;
 	this.run = null;
 	this.p = null;
@@ -32,10 +32,7 @@ BasicApp.Lemonade.prototype = {
 			var x = this.input.activePointer.x;
 			var y = this.input.activePointer.y;
 
-			this.tooltip.text = "x: " + x + " y: " + y;
-			console.log(this.tooltip.text);
-			console.log(x);
-			console.log(y);
+			this.tooltip.setText("x: " + x + " y: " + y);
 	},
 
 	render: function(){
@@ -48,7 +45,7 @@ BasicApp.Lemonade.prototype = {
 
 	draw: function(houses, sites){
 		console.log("drawed");
-		graphics.clear();
+		//graphics.clear();
 		this.drawLattice();
 		this.drawIntersections();
 		this.drawLocations();
@@ -86,7 +83,7 @@ BasicApp.Lemonade.prototype = {
 		//Draw sites
 		for(var i=0;i<this.sites.length;i++){
 			if(this.isHouseOverlap(this.sites[i])){
-				graphics.beginFill(0xFF0000);
+				graphics.beginFill(0xff0000);
 				graphics.drawCircle(this.sites[i].x, this.sites[i].y, this.diameter-1);
 			}
 			else{
