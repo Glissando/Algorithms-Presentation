@@ -19,8 +19,6 @@ BasicApp.Lemonade.prototype = {
 		if(!this.tooltip){
 			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
 			this.tooltip = this.add.text(20, 30, '', style);
-
-			this.bmd = this.game.make.bitMapData(this.game.width,this.game.height);
 		}
 		else{
 			this.tooltip = renderable = true;
@@ -33,10 +31,8 @@ BasicApp.Lemonade.prototype = {
 	update: function(){
 			var pos = this.latticePosition(this.input.activePointer.x, this.input.activePointer.y);
 			this.tooltip.setText("x: " + pos.x + " y: " + pos.y);
-			//graphics.width = this.game.width;
-			//graphics.height = this.game.height;
-			this.bmd.width = this.game.width;
-			this.bmd.height = this.game.height;
+			graphics.width = this.game.width;
+			graphics.height = this.game.height;
 	},
 
 	render: function(){
