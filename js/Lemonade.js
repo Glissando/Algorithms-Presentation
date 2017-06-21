@@ -112,7 +112,7 @@ BasicApp.Lemonade.prototype = {
 			console.log("IsSiteOverlap: "+!this.isSiteOverlap(this.houses[i]));
 			if(!this.isSiteOverlap(this.houses[i])){
 				graphics.beginFill(0x0000ff);
-				graphics.drawCircle(this.houses[i].x*this.cellSize, this.houses[i].y*this.cellSize);
+				graphics.drawCircle(this.houses[i].x*this.cellSize, this.houses[i].y*this.cellSize, this.diameter);
 				graphics.endFill();
 			}
 		}
