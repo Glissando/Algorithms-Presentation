@@ -174,7 +174,7 @@ BasicApp.Lemonade.prototype = {
 
 		var latticePoint = this.latticePosition(x,y);
 
-		if(Phaser.Point.distance(latticePoint, new Phaser.Point(x/this.cellSize,y/this.cellSize) < this.latticeRange){
+		if(Phaser.Point.distance(latticePoint, new Phaser.Point(x/this.cellSize,y/this.cellSize)) < this.latticeRange){
 			if(this.siteMode){
 
 				if(!this.removeSite(latticePoint)){

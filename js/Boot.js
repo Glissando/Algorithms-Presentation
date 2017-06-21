@@ -1,3 +1,5 @@
+var BasicApp = {};
+
 BasicApp.Boot = function (app) {
 
 };
