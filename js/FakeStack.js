@@ -57,27 +57,27 @@ BasicApp.FakeStack.prototype = {
 	},
 
 	addPointers: function(){
-		app.input.mousePointer.rightButton.onDown.add(this.rightClick,this);
-		app.input.mousePointer.leftButton.onDown.add(this.leftClick,this);
+		this.input.mousePointer.rightButton.onDown.add(this.rightClick,this);
+		this.input.mousePointer.leftButton.onDown.add(this.leftClick,this);
 	},
 
 	addKeys: function(){
 		//Reset keys
-		app.input.keyboard.reset();
+		this.input.keyboard.reset();
 
-		this.run = app.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+		this.run = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		this.run.onDown.add(this.findFakeCoin, this);
 
-		this.p = app.input.keyboard.addKey(Phaser.Keyboard.P);
+		this.p = this.input.keyboard.addKey(Phaser.Keyboard.P);
 		this.p.onDown.add(this.menu, this);
 
-		this.esc = app.input.keyboard.addKey(Phaser.Keyboard.ESC);
+		this.esc = this.input.keyboard.addKey(Phaser.Keyboard.ESC);
 		this.esc.onDown.add(this.menu, this);
 	},
 
 	leftClick: function(){
-		var x = app.input.activePointer.x;
-		var y = app.input.activePointer.y;
+		var x = this.input.activePointer.x;
+		var y = this.input.activePointer.y;
 
 		if(this.siteMode){
 			this.sites.push(this.latticePosition(x,y));

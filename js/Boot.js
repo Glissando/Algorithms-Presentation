@@ -55,7 +55,7 @@ BasicApp.Boot.prototype = {
     },
 
     create: function () {
-			graphics = app.add.graphics(0,0);
+			graphics = this.add.graphics(0,0);
 			this.state.start('Lemonade', false);
     }
 

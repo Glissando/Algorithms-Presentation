@@ -17,7 +17,7 @@ BasicApp.Lemonade.prototype = {
 	create: function(){
 		if(this.tooltip){
 			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
-			this.tooltip = app.add.text(20,640, '', style);
+			this.tooltip = this.add.text(20,640, '', style);
 		}
 		else{
 			this.tooltip = renderable = true;
@@ -27,8 +27,8 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	update: function(){
-			var x = app.input.activePointer.x;
-			var y = app.input.activePointer.y;
+			var x = this.input.activePointer.x;
+			var y = this.input.activePointer.y;
 
 			this.tooltip.text = "x: " + x + " y: " + y;
 	},
@@ -55,22 +55,22 @@ BasicApp.Lemonade.prototype = {
 		for(var i=0;i*this.cellSize < this.width;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(pos, 0);
-			graphics.lineTo(pos, app.screen.height);
+			graphics.lineTo(pos, this.screen.height);
 		}
 
 		for(var i=0;i*this.cellSize < this.height;i++){
 			var pos = this.cellSize * i;
 			graphics.moveTo(0, pos);
-			graphics.lineTo(app.screen.width, pos);
+			graphics.lineTo(this.screen.width, pos);
 		}
 	},
 
 	drawIntersections: function(){
 		graphics.lineStyle(2, 0xffd900);
 
-		for(var i=0;i*this.cellSize < app.screen.width;i++){
+		for(var i=0;i*this.cellSize < this.width;i++){
 			var xPos = this.cellSize * i;
-			for(var j=0;j*this.cellSize < app.screen.height;j++){
+			for(var j=0;j*this.cellSize < this.height;j++){
 				var yPos = this.cellSize * j;
 				graphics.drawCircle(xPos, yPos, this.diameter);
 			}
@@ -154,27 +154,27 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	addPointers: function(){
-		app.input.mousePointer.rightButton.onDown.add(this.rightClick,this);
-		app.input.mousePointer.leftButton.onDown.add(this.leftClick,this);
+		this.input.mousePointer.rightButton.onDown.add(this.rightClick,this);
+		this.input.mousePointer.leftButton.onDown.add(this.leftClick,this);
 	},
 
 	addKeys: function(){
 		//Reset keys
-		app.input.keyboard.reset();
+		this.input.keyboard.reset();
 
-		this.run = app.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+		this.run = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		this.run.onDown.add(this.findBestLocation, this);
 
-		this.p = app.input.keyboard.addKey(Phaser.Keyboard.P);
+		this.p = this.input.keyboard.addKey(Phaser.Keyboard.P);
 		this.p.onDown.add(this.menu, this);
 
-		this.esc = app.input.keyboard.addKey(Phaser.Keyboard.ESC);
+		this.esc = this.input.keyboard.addKey(Phaser.Keyboard.ESC);
 		this.esc.onDown.add(this.menu, this);
 	},
 
 	leftClick: function(){
-		var x = app.input.activePointer.x;
-		var y = app.input.activePointer.y;
+		var x = this.input.activePointer.x;
+		var y = this.input.activePointer.y;
 
 		var latticePoint = this.latticePosition(x,y);
 

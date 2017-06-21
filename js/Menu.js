@@ -9,11 +9,11 @@ BasicApp.Menu.prototype = {
 
 	create: function(){
 		if(!this.lemonade){
-			this.background = app.add.image(0, 0, "menuBackground");
+			this.background = this.add.image(0, 0, "menuBackground");
 
-			this.lemonade = app.add.button(151, 200, "lemonadeButton");
-			this.fakeCoin = app.add.button(151, 300, "fakeCoin");
-			this.fakeStack = app.add.button(151, 400, "fakeCoinButton");
+			this.lemonade = this.add.button(151, 200, "lemonadeButton");
+			this.fakeCoin = this.add.button(151, 300, "fakeCoin");
+			this.fakeStack = this.add.button(151, 400, "fakeCoinButton");
 		}
 		else{
 			this.lemonade.renderable = true;
