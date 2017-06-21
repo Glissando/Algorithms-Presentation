@@ -208,7 +208,7 @@ BasicApp.Lemonade.prototype = {
 
 		console.log("sites" + this.sites);
 		console.log("houses" + this.houses);
-		
+
 		if(this.distance(latticePoint.x, latticePoint.y, x/this.cellSize, y/this.cellSize) < this.latticeRange){
 			if(this.siteMode){
 
@@ -227,7 +227,7 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	rightClick: function(){
-		console.log(this.siteMode);
 		this.siteMode = !this.siteMode;
+		console.log(this.siteMode);
 	}
 };
