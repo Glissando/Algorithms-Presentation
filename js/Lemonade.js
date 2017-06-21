@@ -58,8 +58,8 @@ BasicApp.Lemonade.prototype = {
 			graphics.lineTo(pos, app.screen.height);
 		}
 
-		for(var i=0;i*cellSize < app.screen.height;i++){
-			var pos = cellSize * i;
+		for(var i=0;i*this.cellSize < app.game.screen.height;i++){
+			var pos = this.cellSize * i;
 			graphics.moveTo(0, pos);
 			graphics.lineTo(app.screen.width, pos);
 		}
@@ -68,10 +68,10 @@ BasicApp.Lemonade.prototype = {
 	drawIntersections: function(){
 		graphics.lineStyle(2, 0xffd900);
 
-		for(var i=0;i*cellSize < app.screen.width;i++){
-			var xPos = cellSize * i;
-			for(var j=0;j*cellSize < app.screen.height;j++){
-				var yPos = cellSize * j;
+		for(var i=0;i*this.cellSize < app.screen.width;i++){
+			var xPos = this.cellSize * i;
+			for(var j=0;j*this.cellSize < app.screen.height;j++){
+				var yPos = this.cellSize * j;
 				graphics.drawCircle(xPos, yPos, this.diameter);
 			}
 		}
