@@ -60,6 +60,7 @@ BasicApp.Lemonade.prototype = {
 		for(var i=0;i*this.cellSize < this.game.width;i++){
 			var pos = this.cellSize * i;
 			graphics.beginFill(0xffffff);
+			graphics.lineStyle(2, 0xffffff, 1);
 			graphics.moveTo(pos, 0);
 			//graphics.lineTo(pos, this.game.height);
 			//var line = new Phaser.Line(pos, 0, pos, this.game.height);
@@ -71,6 +72,7 @@ BasicApp.Lemonade.prototype = {
 		for(var i=0;i*this.cellSize < this.game.height;i++){
 			var pos = this.cellSize * i;
 			graphics.beginFill(0xffffff);
+			graphics.lineStyle(2, 0xffffff, 1);
 			graphics.moveTo(0, pos);
 			//graphics.lineTo(this.game.width, pos);
 			//var line = new Phaser.Line(0, pos, this.game.width, pos);
