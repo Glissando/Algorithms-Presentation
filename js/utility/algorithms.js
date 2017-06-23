@@ -1,17 +1,17 @@
 //Where is the best lemonade stand? Iterative algorithm backend
 function bestLocation(houses, sites){
 	var newSights = [];
-	
+
 	for(var i=0; i<sites.length; i++){
 		var newSight = bestNeighbour(sites[i], houses);
-		
+
 		if(newSight.equals(sites[i])){
 			return newSight;
 		}
-		
+
 		newSights.push(newSight);
 	}
-	
+
 	sites = newSights;
 	return bestLocation(houses, sites);
 }
@@ -24,29 +24,29 @@ function bestNeighbour(site, houses){
 		new Phaser.Point(site.x,site.y-1),
 		new Phaser.Point(site.x-1,site.y)
 	];
-	
+
 	var bestScore = Number.POSITIVE_INFINITY;
 	var index = 0;
-	
+
 	for(var i=0;i<neighbours.length;i++){
 		var s = score(neighbours[i], houses);
-		
+
 		if(s < bestScore){
 			bestScore = s;
 			index = i;
 		}
 	}
-	
+
 	return neighbours[index];
 }
 
 function score(site, houses){
 	var y = 0;
-	
+
 	for(var i=0;i<houses.length;i++){
 		y += manhattanDistance(site, houses[i]);
 	}
-	
+
 	return y;
 }
 
@@ -61,10 +61,10 @@ function fakeCoin(coins){
 	if(coins.length % 2 == 0){
 		var isOdd = false;
 	}
-	
+
 	var index = 0;
 	var middle = 0;
-	
+
 	if(isOdd){
 		middle = (coins.length-1)/2;
 		if(weight(coins, 0, middle) < weight(coins, middle+1, coins.length)){
@@ -85,7 +85,7 @@ function fakeCoin(coins){
 			index = split(coins, 0, middle);
 		}
 	}
-	
+
 	if(index < 0){
 		return middle;
 	}
@@ -96,7 +96,7 @@ function fakeCoin(coins){
 function split(coins, a, b){
 	var length = b - a;
 	var middle = a+(length/2);
-	
+
 	if(length > 2){
 		if(weight(coins, a, middle) > weight(coins, middle, b)){
 			return split(coins, a, middle);
@@ -119,48 +119,46 @@ function isIndex(x){
 
 function weight(coins, a, b){
 	var y = 0;
-	
+
 	for(var i=a;i<b;i++){
 		y += coins[i];
 	}
-	
+
 	return y;
 }
 
 function generateCoins(size, normalWeight){
-	var normalWeight = normalWeight || range(10, 20);
-	
+	var normalWeight = normalWeight || Mathf.range(10, 20);
+
 	var fakeWeight = normalWeight;
 	/*while(fakeWeight == normalWeight){
-		fakeWeight = range(10, 20);
+		fakeWeight = Mathf.range(10, 20);
 	}*/
-	
+
 	fakeWeight = normalWeight + 1;
-	
+
 	var coins = [];
 	for(var i=0;i<size;i++){
 		coins.push(normalWeight);
 	}
-	
-	coins.splice(range(0,size), 0, fakeWeight);
-	
+
+	coins.splice(Mathf.range(0,size), 0, fakeWeight);
+
 	return coins;
 }
 
-function range(a,b){
-	return Math.floor(Math.random() * (b-a+1))+a;
-}
+
 
 //Which stack of coins is fake? Transform and Conquer example
 function fakeStack(coins, normalWeight){
 	var weight = 0;
-	
+
 	for(var i=0;i<coins.length;i++){
 		weight += coins[i]*(i+1);
 	}
-	var count = (Math.pow(coins.length,2)+coins.length) / 2;
-	
+	var count = Mathf.sum(coins.length);
+
 	var index = Math.abs(weight-(normalWeight*count));
-	
+
 	return index;
 }

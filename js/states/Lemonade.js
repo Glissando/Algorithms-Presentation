@@ -36,7 +36,7 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	render: function(){
-		this.draw(this.houses, this.sites);
+		//this.draw(this.houses, this.sites);
 	},
 
 	shutdown: function(){
@@ -177,8 +177,10 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	addPointers: function(){
-		this.input.mousePointer.rightButton.onDown.add(this.rightClick,this);
-		this.input.mousePointer.leftButton.onDown.add(this.leftClick,this);
+		this.input.mousePointer.rightButton.onDown.add(this.rightClick, this);
+
+		this.input.mousePointer.leftButton.onDown.add(this.leftClick, this, 10);
+		this.input.mousePointer.leftButton.onDown.add(this.draw, this, 0, this.houses, this.sites);
 	},
 
 	addKeys: function(){
@@ -186,23 +188,19 @@ BasicApp.Lemonade.prototype = {
 		this.input.keyboard.reset();
 
 		this.run = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-		this.run.onDown.add(this.findBestLocation, this);
+		this.run.onDown.add(this.findBestLocation, this, 10);
+		this.run.onDown.add(this.draw, this, 0, this.houses, this.sites);
 
 		this.p = this.input.keyboard.addKey(Phaser.Keyboard.P);
 		this.p.onDown.add(this.menu, this);
 
+		this.r = this.input.keyboard.addKey(Phaser.Keyboard.R);
+		this.r.onDown.add(this.resetBoard, this, 10);
+		this.r.onDown.add(this.draw, this, 0, this.houses, this.sites);
+
 		this.esc = this.input.keyboard.addKey(Phaser.Keyboard.ESC);
 		this.esc.onDown.add(this.menu, this);
 	},
-
-	distance: function (x1, y1, x2, y2) {
-
-        var dx = x1 - x2;
-        var dy = y1 - y2;
-
-        return Math.sqrt(dx * dx + dy * dy);
-
-    },
 
 	leftClick: function(){
 		var x = this.input.activePointer.x;
@@ -210,9 +208,7 @@ BasicApp.Lemonade.prototype = {
 
 		var latticePoint = this.latticePosition(x,y);
 
-
-
-		if(this.distance(latticePoint.x, latticePoint.y, x/this.cellSize, y/this.cellSize) < this.latticeRange){
+		if(Mathf.distance(latticePoint.x, latticePoint.y, x/this.cellSize, y/this.cellSize) < this.latticeRange){
 			if(this.siteMode){
 
 				if(!this.removeSite(latticePoint)){
