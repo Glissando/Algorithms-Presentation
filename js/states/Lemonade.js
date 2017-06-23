@@ -7,6 +7,8 @@ BasicApp.Lemonade = function(app){
 	this.latticeRange = this.diameter+2;
 	this.run = null;
 	this.p = null;
+	this.e = null;
+	this.r = null;
 	this.esc = null;
 
 	this.bmd = null;
@@ -23,6 +25,8 @@ BasicApp.Lemonade.prototype = {
 		else{
 			this.tooltip = renderable = true;
 		}
+
+		this.draw(this.houses, this.sites);
 
 		this.addKeys();
 		this.addPointers();
@@ -168,6 +172,20 @@ BasicApp.Lemonade.prototype = {
 		this.sites = [pos];
 	},
 
+	randomBoard: function(){
+			while(this.sites.length < 5){
+				var pos = new Phaser.Point(Mathf.range(1,40), Mathf.range(1,20));
+
+				this.sites.push(pos);
+			}
+
+			while(this.houses.length < 5){
+				var pos = new Phaser.Point(Mathf.range(1,40), Mathf.range(1,20));
+
+				this.houses.push(pos);
+			}
+	},
+
 	resetBoard: function(){
 			this.houses = [];
 			this.sites = [];
@@ -198,6 +216,10 @@ BasicApp.Lemonade.prototype = {
 
 		this.p = this.input.keyboard.addKey(Phaser.Keyboard.P);
 		this.p.onDown.add(this.menu, this);
+
+		this.e = this.input.keyboard.addKey(Phaser.Keyboard.E);
+		this.e.onDown.add(this.randomBoard, this, 10);
+		this.e.onDown.add(this.draw, this, 0, this.houses, this.sites);
 
 		this.r = this.input.keyboard.addKey(Phaser.Keyboard.R);
 		this.r.onDown.add(this.resetBoard, this, 10);
