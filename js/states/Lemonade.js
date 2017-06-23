@@ -168,6 +168,11 @@ BasicApp.Lemonade.prototype = {
 		this.sites = [pos];
 	},
 
+	resetBoard: function(){
+			this.houses = [];
+			this.sites = [];
+	},
+
 	latticePosition: function(x, y){
 		return new Phaser.Point(Math.round(x/this.cellSize), Math.round(y/this.cellSize));
 	},
