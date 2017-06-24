@@ -174,17 +174,21 @@ BasicApp.Lemonade.prototype = {
 
 	randomBoard: function(){
 			this.resetBoard();
-			
+
 			while(this.sites.length < 5){
 				var pos = new Phaser.Point(Mathf.range(1,40), Mathf.range(1,20));
 
-				this.sites.push(pos);
+				if(!isSiteOverlap()){
+					this.sites.push(pos);
+				}
 			}
 
 			while(this.houses.length < 5){
 				var pos = new Phaser.Point(Mathf.range(1,40), Mathf.range(1,20));
 
-				this.houses.push(pos);
+				if(!isHouseOverlap()){
+					this.houses.push(pos);
+				}
 			}
 	},
 
