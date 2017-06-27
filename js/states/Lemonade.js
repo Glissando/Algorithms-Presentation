@@ -178,7 +178,7 @@ BasicApp.Lemonade.prototype = {
 			while(this.sites.length < 5){
 				var pos = new Phaser.Point(Mathf.range(1,40), Mathf.range(1,20));
 
-				if(!this.isSiteOverlap()){
+				if(!this.isSiteOverlap(pos)){
 					this.sites.push(pos);
 				}
 			}
@@ -186,7 +186,7 @@ BasicApp.Lemonade.prototype = {
 			while(this.houses.length < 5){
 				var pos = new Phaser.Point(Mathf.range(1,40), Mathf.range(1,20));
 
-				if(!this.isHouseOverlap()){
+				if(!this.isHouseOverlap(pos)){
 					this.houses.push(pos);
 				}
 			}
