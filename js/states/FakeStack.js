@@ -53,7 +53,7 @@ BasicApp.FakeStack.prototype = {
 	},
 
 	menu: function(){
-		this.state.start("menu",false);
+		this.state.start("Menu",false);
 	},
 
 	addPointers: function(){
