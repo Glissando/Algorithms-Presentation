@@ -3,6 +3,7 @@ BasicApp.Help = function(app){
 	this.yMargin = 20;
 	this.instructionMargin = 15;
 	this.esc = null;
+	this.h = null;
 	this.title = null;
 	this.instructions = null;
 	this.state = "";
@@ -60,6 +61,9 @@ BasicApp.Help.prototype = {
 
 		this.esc = this.input.keyboard.addKey(Phaser.Keyboard.ESC);
 		this.esc.onDown.add(this.return, this);
+
+		this.h = this.input.keyboard.addKey(Phaser.Keyboard.H);
+		this.h.onDown.add(this.return, this);
 	},
 
 	leftClick: function(){},
