@@ -7,6 +7,7 @@
 		<title>Algorithms</title>
 		<link rel="stylesheet" href="style.css" />
 		<script src="js/lib/phaser.min.js"></script>
+		<script src="js/lib/logger.min.js"></script>
 		<script src="js/utility/mathf.js"></script>
 		<script src="js/utility/algorithms.js"></script>
 		<script src="js/states/Boot.js"></script>
@@ -14,6 +15,7 @@
 		<script src="js/states/FakeCoin.js"></script>
 		<script src="js/states/FakeStack.js"></script>
 		<script src="js/states/Menu.js" defer></script>
+		<script src="js/states/Help.js"></script>
 
 	</header>
 	<body oncontextmenu="return false;">
@@ -24,12 +26,15 @@
 			var app;
 			var graphics;
 			window.onload = function() {
+				logger.setLevel(Logger.DEBUG);
+
 				app = new Phaser.Game(1280, 720, Phaser.AUTO, 'gameContainer');
 				app.state.add('Boot', BasicApp.Boot);
 				app.state.add('Lemonade', BasicApp.Lemonade);
 				app.state.add('FakeCoin', BasicApp.FakeCoin);
 				app.state.add('FakeStack', BasicApp.FakeStack);
 				app.state.add('Menu', BasicApp.Menu);
+				app.state.add("Help", BasicApp.Help);
 				app.state.start('Boot');
 			};
 		</script>
