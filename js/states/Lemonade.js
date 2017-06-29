@@ -48,10 +48,12 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	draw: function(houses, sites){
+		Logger.time("Draw screen time");
 		graphics.clear();
 		this.drawLattice();
 		//this.drawIntersections();
 		this.drawLocations();
+		Logger.timeEnd("Draw screen time");
 	},
 
 	drawLattice: function(){
@@ -113,7 +115,7 @@ BasicApp.Lemonade.prototype = {
 
 		//Draw houses
 		for(var i=0;i<this.houses.length;i++){
-			console.log("IsSiteOverlap: "+!this.isSiteOverlap(this.houses[i]));
+			Logger.debug("IsSiteOverlap: "+!this.isSiteOverlap(this.houses[i]));
 			if(!this.isSiteOverlap(this.houses[i])){
 				graphics.beginFill(0x0000ff);
 				graphics.drawCircle(this.houses[i].x*this.cellSize, this.houses[i].y*this.cellSize, this.diameter);
@@ -145,7 +147,7 @@ BasicApp.Lemonade.prototype = {
 	removeHouse: function(pos){
 		for(var i=0;i<this.houses.length;i++){
 			if(pos.equals(this.houses[i])){
-				console.log("removed House");
+				Logger.debug("Removed house at point " + pos);
 				this.houses.splice(i,1);
 				return true;
 			}
@@ -157,7 +159,7 @@ BasicApp.Lemonade.prototype = {
 	removeSite: function(pos){
 		for(var i=0;i<this.sites.length;i++){
 			if(pos.equals(this.sites[i])){
-				console.log("removed Site");
+				Logger.debug("Removed site at point" + pos);
 				this.sites.splice(i,1);
 				return true;
 			}
@@ -167,9 +169,11 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	findBestLocation: function(){
+		Logger.time("Iterative algorithm time");
 		var pos = bestLocation(this.houses,this.sites);
 
 		this.sites = [pos];
+		Logger.endTime("Iterative algorithm time");
 	},
 
 	randomBoard: function(){
@@ -190,6 +194,9 @@ BasicApp.Lemonade.prototype = {
 					this.houses.push(pos);
 				}
 			}
+
+			Logger.Debug("Sites generated at " + this.sites);
+			Logger.Debug("Houses generated at " + this.houses);
 	},
 
 	resetBoard: function(){
@@ -202,7 +209,22 @@ BasicApp.Lemonade.prototype = {
 	},
 
 	menu: function(){
-		this.state.start("menu",false);
+		Logger.debug("Switching to menu state");
+		this.state.start("Menu", false);
+	},
+
+	help: function(){
+		Logger.debug("Switching to help state");
+		this.state.start("Help", false, true, "lemonade", "Lemonade Stand",
+	[
+		"Green points represent sites, blue points represent a house,
+		red points represent an overlap of potential site locations and a house",
+		"",
+		" Controls ",
+		"E: Generate random points",
+		"R: Clear the board",
+		"Spacebar: Find the best location",
+	]);
 	},
 
 	addPointers: function(){
@@ -246,23 +268,23 @@ BasicApp.Lemonade.prototype = {
 
 				if(!this.removeSite(latticePoint)){
 					this.sites.push(latticePoint);
-					console.log(latticePoint);
+					Logger.debug("Site added at point " + latticePoint);
 				}
 			}
 			else{
 				if(!this.removeHouse(latticePoint)){
 					this.houses.push(latticePoint);
-					console.log(latticePoint);
+					Logger.debug("House added at point " + latticePoint);
 				}
 			}
 		}
 
-		console.log("sites" + this.sites);
-		console.log("houses" + this.houses);
+		Logger.debug("sites" + this.sites);
+		Logger.debug("houses" + this.houses);
 	},
 
 	rightClick: function(){
 		this.siteMode = !this.siteMode;
-		console.log(this.siteMode);
+		Logger.debug(this.siteMode);
 	}
 };
