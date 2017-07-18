@@ -26,6 +26,7 @@
 			var app;
 			var graphics;
 			window.onload = function() {
+				Logger.useDefaults();
 				Logger.setLevel(Logger.DEBUG);
 
 				app = new Phaser.Game(1280, 720, Phaser.AUTO, 'gameContainer');
