@@ -216,7 +216,7 @@ BasicApp.Lemonade.prototype = {
 
 	help: function(){
 		Logger.debug("Switching to help state");
-		this.state.start("Help", false, true, "lemonade", "Lemonade Stand",
+		this.state.start("Help", false, true, "Lemonade", "Lemonade Stand",
 	[
 		"Green points represent sites, blue points represent a house, red points represent an overlap of potential site locations and a house",
 		"",
