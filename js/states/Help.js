@@ -6,13 +6,13 @@ BasicApp.Help = function(app){
 	this.h = null;
 	this.title = null;
 	this.instructions = null;
-	this.state = "";
+	this.returnState = "";
 };
 
 BasicApp.Help.prototype = {
 
 	init: function(state, title, instructions){
-		this.state = state;
+		this.returnState = state;
 		this.title = title;
 		this.instructions = this.add.group();
 
@@ -47,7 +47,7 @@ BasicApp.Help.prototype = {
 	},
 
 	return: function(){
-		this.state.start(this.state, false);
+		this.state.start(this.returnState, false);
 	},
 
 	addPointers: function(){
