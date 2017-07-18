@@ -20,11 +20,11 @@ BasicApp.Lemonade.prototype = {
 
 	create: function(){
 		if(!this.tooltip){
-			var style = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
+			var style = { font: '32pt Arial', stroke: 'black', fill: 'white', align: 'left', wordWrap: false };
 			this.tooltip = this.add.text(20, 30, '', style);
 		}
 		else{
-			this.tooltip = renderable = true;
+			this.tooltip.renderable = true;
 		}
 
 		this.draw(this.houses, this.sites);
@@ -46,6 +46,8 @@ BasicApp.Lemonade.prototype = {
 
 	shutdown: function(){
 		this.tooltip.renderable = false;
+
+		this.clearEvents();
 	},
 
 	draw: function(houses, sites){
@@ -225,6 +227,18 @@ BasicApp.Lemonade.prototype = {
 		"R: Clear the board",
 		"Spacebar: Find the best location",
 	]);
+	},
+
+	clearEvents: function(){
+		this.input.mousePointer.rightButton.onDown.removeAll();
+		this.input.mousePointer.leftButton.onDown.removeAll();
+
+		this.run.onDown.removeAll();
+		this.p.onDown.removeAll();
+		this.h.onDown.removeAll();
+		this.e.onDown.removeAll();
+		this.r.onDown.removeAll();
+		this.esc.onDown.removeAll();
 	},
 
 	addPointers: function(){
