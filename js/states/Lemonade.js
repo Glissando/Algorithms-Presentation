@@ -196,8 +196,8 @@ BasicApp.Lemonade.prototype = {
 				}
 			}
 
-			Logger.Debug("Sites generated at " + this.sites);
-			Logger.Debug("Houses generated at " + this.houses);
+			Logger.debug("Sites generated at " + this.sites);
+			Logger.debug("Houses generated at " + this.houses);
 	},
 
 	resetBoard: function(){
