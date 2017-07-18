@@ -17,7 +17,7 @@ BasicApp.Help.prototype = {
 		this.instructions = this.add.group();
 
 		var style = { font: '24pt Arial', fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 800 };
-		var titleStyle = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
+		var titleStyle = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 600 };
 		var instructionStyle = { font: '24pt Arial', stroke: 'white', fill: 'white', align: 'center', wordWrap: false, wordWrapWidth: 900 };
 
 		this.title = this.add.text(this.xMargin, this.yMargin, title, titleStyle);
@@ -53,7 +53,7 @@ BasicApp.Help.prototype = {
 	addPointers: function(){
 		this.input.mousePointer.rightButton.onDown.removeAll();
 		this.input.mousePointer.leftButton.onDown.removeAll();
-		
+
 		this.input.mousePointer.rightButton.onDown.add(this.rightClick,this);
 		this.input.mousePointer.leftButton.onDown.add(this.leftClick,this);
 	},
