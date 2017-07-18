@@ -6,6 +6,7 @@ BasicApp.Lemonade = function(app){
 	this.diameter = Math.sqrt(this.cellSize)+12;
 	this.latticeRange = this.diameter+2;
 	this.run = null;
+	this.h = null;
 	this.p = null;
 	this.e = null;
 	this.r = null;
@@ -243,6 +244,9 @@ BasicApp.Lemonade.prototype = {
 
 		this.p = this.input.keyboard.addKey(Phaser.Keyboard.P);
 		this.p.onDown.add(this.menu, this);
+
+		this.h = this.input.keyboard.addKey(Phaser.Keyboard.H);
+		this.h.onDown.add(this.help, this);
 
 		this.e = this.input.keyboard.addKey(Phaser.Keyboard.E);
 		this.e.onDown.add(this.randomBoard, this, 10);
