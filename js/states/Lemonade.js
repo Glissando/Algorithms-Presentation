@@ -173,7 +173,7 @@ BasicApp.Lemonade.prototype = {
 		var pos = bestLocation(this.houses,this.sites);
 
 		this.sites = [pos];
-		Logger.endTime("Iterative algorithm time");
+		Logger.timeEnd("Iterative algorithm time");
 	},
 
 	randomBoard: function(){
