@@ -217,8 +217,7 @@ BasicApp.Lemonade.prototype = {
 		Logger.debug("Switching to help state");
 		this.state.start("Help", false, true, "lemonade", "Lemonade Stand",
 	[
-		"Green points represent sites, blue points represent a house,
-		red points represent an overlap of potential site locations and a house",
+		"Green points represent sites, blue points represent a house, red points represent an overlap of potential site locations and a house",
 		"",
 		" Controls ",
 		"E: Generate random points",
