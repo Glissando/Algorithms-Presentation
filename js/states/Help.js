@@ -1,7 +1,7 @@
 BasicApp.Help = function(app){
 	this.xMargin = 50;
 	this.yMargin = 20;
-	this.instructionMargin = 15;
+	this.instructionMargin = 35;
 	this.esc = null;
 	this.h = null;
 	this.title = null;
@@ -16,9 +16,9 @@ BasicApp.Help.prototype = {
 		this.title = title;
 		this.instructions = this.add.group();
 
-		var style = { font: '24pt Arial', fill: 'black', align: 'left', wordWrap: true, wordWrapWidth: 800 };
+		var style = { font: '24pt Arial', fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 800 };
 		var titleStyle = { font: '32pt Arial', fill: 'white', align: 'left', wordWrap: false };
-		var instructionStyle = { font: '24pt Arial', fill: 'black', align: 'center', wordWrap: false, wordWrapWidth: 900 };
+		var instructionStyle = { font: '24pt Arial', fill: 'white', align: 'center', wordWrap: false, wordWrapWidth: 900 };
 
 		this.title = this.add.text(this.xMargin, this.yMargin, title, titleStyle);
 
