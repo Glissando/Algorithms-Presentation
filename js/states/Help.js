@@ -18,7 +18,7 @@ BasicApp.Help.prototype = {
 
 		var style = { font: '24pt Arial', stroke: 'black', fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 800 };
 		var titleStyle = { font: '32pt Arial', stroke: 'black', strokeThickness: 6, fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 800 };
-		var instructionStyle = { font: '24pt Arial', stroke: 'black', strokeThickness: 4, fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 900 };
+		var instructionStyle = { font: '24pt Arial', stroke: 'black', strokeThickness: 4, fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 1100 };
 
 		this.title = this.add.text(this.xMargin, this.yMargin, title, titleStyle);
 

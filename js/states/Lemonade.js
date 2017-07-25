@@ -222,6 +222,7 @@ BasicApp.Lemonade.prototype = {
 	[
 		"Green points represent sites, blue points represent a house, red points represent an overlap of potential site locations and a house",
 		"",
+		"",
 		" Controls ",
 		"E: Generate random points",
 		"R: Clear the board",
