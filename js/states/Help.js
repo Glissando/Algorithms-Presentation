@@ -1,6 +1,6 @@
 BasicApp.Help = function(app){
 	this.xMargin = 50;
-	this.yMargin = 20;
+	this.yMargin = 25;
 	this.instructionMargin = 35;
 	this.esc = null;
 	this.h = null;
