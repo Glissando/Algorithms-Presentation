@@ -16,9 +16,9 @@ BasicApp.Help.prototype = {
 		this.title = title;
 		this.instructions = this.add.group();
 
-		var style = { font: '24pt Arial', stroke: 'black', fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 500 };
-		var titleStyle = { font: '32pt Arial', stroke: 'black', strokeThickness: 10, fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 600 };
-		var instructionStyle = { font: '24pt Arial', stroke: 'black', strokeThickness: 6, fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 600 };
+		var style = { font: '24pt Arial', stroke: 'black', fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 800 };
+		var titleStyle = { font: '32pt Arial', stroke: 'black', strokeThickness: 6, fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 800 };
+		var instructionStyle = { font: '24pt Arial', stroke: 'black', strokeThickness: 4, fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 900 };
 
 		this.title = this.add.text(this.xMargin, this.yMargin, title, titleStyle);
 
